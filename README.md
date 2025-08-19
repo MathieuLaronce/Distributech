@@ -1,6 +1,7 @@
 Table des matières:
 
 Contexte
+
 Objectifs
 Sources de données
 Fonctionnalités principales
