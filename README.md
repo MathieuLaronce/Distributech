@@ -54,15 +54,15 @@ Les fichiers d’**état des stocks** générés automatiquement sont également
 - SQLite  
 - PostgreSQL ou MySQL (base centrale cible)  
 - Docker *(optionnel pour déploiement et administration de la base)*  
-- Compte **Dropbox** + clé API pour l’intégration  
+- Compte **Dropbox** avec dossier partager par lien
 - Bibliothèques Python listées dans `requirements.txt`  
 
 ---
 
 ## 🧰 Technologies  
 - **Langage** : Python  
-- **Bases de données** : SQLite (source), PostgreSQL/MySQL (cible)  
-- **ETL** : Scripts Python (pandas, sqlite3, SQLAlchemy)  
+- **Bases de données** : SQLite (source)
+- **ETL** : Scripts Python (pandas, sqlite3)  
 - **Cloud** : Dropbox (dépôt et récupération automatique des fichiers)  
 - **Conteneurisation** : Docker *(optionnel)*  
 - **Export** : CSV (état des stocks)  
@@ -71,21 +71,21 @@ Les fichiers d’**état des stocks** générés automatiquement sont également
 
 ## 🚀 Utilisation  
 1. Les revendeurs déposent leurs fichiers **CSV** dans le dossier **Dropbox** partagé.  
-2. Lancer le pipeline ETL principal :  
-   ```bash
+2. Lancer le pipeline ETL principal :
+3. ```bash
    ## 📂 Scripts et fichiers du projet  
 
 ```bash
-├── create_schema.py      # Script de création de la base SQL (tables revendeurs, produits, commandes, stocks)
-├── extract.py            # Module d'extraction des données (CSV depuis Dropbox + lecture SQLite)
-├── transform.py          # Module de transformation (nettoyage, validation, cohérence des données)
-├── load.py               # Module de chargement (insertion dans la base SQL relationnelle)
-├── etl_pipeline.py       # Orchestrateur ETL (appelle extract, transform et load)
+├── main.py           # Script de création de la base SQL (tables revendeurs, produits, commandes, stocks)
+├── etl.py            # Module d'extraction des données (CSV depuis Dropbox + lecture SQLite)
+                      # Module de transformation (nettoyage, validation, cohérence des données)
+                      # Module de chargement (insertion dans la base SQL relationnelle)
 ├── requirements.txt      # Dépendances Python (pandas, sqlalchemy, dropbox, sqlite3, etc.)
 ├── distributech.sql      # Export complet de la base SQL (structure + données)
-├── export_stocks.csv     # État des stocks généré automatiquement (puis uploadé sur Dropbox)
-└── README.md             # Documentation du projet '''
+├── analyse_stock.csv     # État des stocks généré automatiquement (puis uploadé sur Dropbox)
+└── README.md             # Documentation du projet 
 
+```
 ---
 
 ## 👨‍💻 Développement  
@@ -105,16 +105,16 @@ Le projet est structuré autour de plusieurs composants principaux :
 ---
 
 ### 📌 Pipeline ETL  
-Le pipeline est découpé en 3 étapes principales, orchestrées par `etl_pipeline.py` :  
+Le pipeline est découpé en 3 étapes principales, orchestrées par `etl.py` :  
 
-1. **Extract (`extract.py`)**  
+1. **Extract **  
    - Télécharge les fichiers **CSV** de commandes depuis **Dropbox**  
    - Lit la base **SQLite** pour récupérer les stocks actuels et les informations des revendeurs  
 
-2. **Transform (`transform.py`)**  
+2. **Transform **  
    - Nettoyage et validation des données  
    - Conversion et uniformisation des formats de date  
    - Suppression des doublons et cohérence des données  
 
-3. **Load (`load.py`)**  
+3. **Load **  
    - Insertion des commandes, produits et mouve
