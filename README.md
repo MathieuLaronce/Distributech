@@ -3,6 +3,12 @@
 ![Python](https://img.shields.io/badge/python-3.9+-blue) ![SQLite](https://img.shields.io/badge/SQLite-database-lightgrey) ![ETL](https://img.shields.io/badge/ETL-automatisation-orange) ![Dropbox](https://img.shields.io/badge/Dropbox-integration-0061ff) ![License MIT](https://img.shields.io/badge/license-MIT-green)  
 
 ---
+## Créateurs
+
+- [Mathieu Laronce](https://github.com/MathieuLaronce)
+- [Simon Brouard](https://github.com/TheBretonDuke)
+- [Lucas Henneuse](https://github.com/lucasHENNEUSE)
+
 
 ## 📑 Table des matières  
 1. [À propos](#-à-propos)  
@@ -112,4 +118,3 @@ Le pipeline est découpé en 3 étapes principales, orchestrées par `etl_pipeli
 
 3. **Load (`load.py`)**  
    - Insertion des commandes, produits et mouve
-
